@@ -21,11 +21,16 @@ export const settings = {
 	icon,
 	example: {
 		attributes: {
-			value:
-				'<p>' + __( 'In quoting others, we cite ourselves.' ) + '</p>',
 			attribution: 'Julio Cortázar',
-			className: 'is-style-large',
 		},
+		innerBlocks: [
+			{
+				name: 'core/paragraph',
+				attributes: {
+					content: __( 'In quoting others, we cite ourselves.' ),
+				},
+			},
+		],
 	},
 	transforms,
 	edit,
