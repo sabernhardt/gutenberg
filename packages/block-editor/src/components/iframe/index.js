@@ -157,11 +157,18 @@ function Iframe( {
 					( name ) =>
 						name.startsWith( 'admin-color-' ) ||
 						name.startsWith( 'post-type-' ) ||
-						name === 'wp-embed-responsive'
+						name === 'wp-embed-responsive' ||
+						name === 'rtl'
 				)
 			);
 
-			contentDocument.dir = ownerDocument.dir;
+			if ( ownerDocument.lang ) {
+				contentDocument.lang = ownerDocument.lang;
+			}
+
+			if ( ownerDocument.dir ) {
+				contentDocument.dir = ownerDocument.dir;
+			}
 
 			for ( const compatStyle of getCompatibilityStyles() ) {
 				if ( contentDocument.getElementById( compatStyle.id ) ) {
